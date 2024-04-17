@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Cricket</title> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+    </head>
+
+
+    <body>
+
+        <div class="banner">
+            <div class = "logo">
+                <h1>Cricket</h1>
+            </div>
+            <div class="Query-Form">
+                <form action="{{ url_for("index")}}" method="post">
+                    <label style="color:aliceblue">Team ID: </label><br>
+                    <input type = "text" name = "Team_ID" placeholder = "Team ID" id = "Team_ID" ><br>
+                    <label style="color:rgb(218, 222, 226)">Team Details:</label><br>
+                    <input type = "text" name = "Team_det" placeholder = "Team ID" id = "Team_det" ><br>
+                    <label style="color:aliceblue">Add Player</label><br>
+                    <input type = "text" name = "Player_det" placeholder = "Player Details" id = "Player_det" ><br>
+                    <label style="color:aliceblue">Delete Player</label><br>
+                    <input type = "text" name = "Player_del" placeholder = "Player Name" id = "Player_del" ><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+
+            <div class = tables>
+
+                <table>
+                    <tr>
+                        {% for header in headings %}
+                        <th> {{ header }}</th>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for row in data %}
+                        <tr>
+
+                            {% for cell in row %}
+
+                            <td>{{ cell }}</td>
+
+                            {% endfor %}
+
+                        </tr>
+                        {% endfor %}
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </body>
+
+</html>
